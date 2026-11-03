@@ -1,4 +1,5 @@
 #this file sends sends message to mistral model and prints what it says back to test to see if this setup will work
+#this is the file thats talking to the model directly
 
 import ollama
 
