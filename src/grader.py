@@ -10,7 +10,8 @@ def build_prompt(question, ideal_answer, student_answer):
     Question: {question}
     Ideal_answer: {ideal_answer}
     Student_answer: {student_answer}
-    Score in terms of 1 to 10: """
+    Reply with only the integer score (0 to 10) and nothing else.
+    Score:"""
 
 print(build_prompt("what is 2+2" , "4", "four"))
 
@@ -18,9 +19,11 @@ print(build_prompt("what is 2+2" , "4", "four"))
 def ask_model(prompt):
     response = ollama.chat(
         model="mistral:v0.2",
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": prompt}],
         options={"temperature": 0, "seed": 42},
     )
-    return response
+    return response["message"]["content"]
+
+print(ask_model(build_prompt("what is 2+2", "4", "four")))
 
 
