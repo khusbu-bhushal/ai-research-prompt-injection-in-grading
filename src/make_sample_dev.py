@@ -11,7 +11,7 @@ filtered_dataset = full_dataset[
 # drop every answer that is already in the pilot
 #tilda helps you flip bit: ~x equals -x - 1, so ~0 is -1 and ~-1 is 0.
 not_in_pilot = filtered_dataset[
-    ~filtered_dataset["entry_id"].isin(pilot_sample["entry_id"])
+    ~filtered_dataset["entry_id"].isin(pilot_sample["entry_id"]) #REVISIT True (in the pilot) becomes False, and False (not in the pilot) becomes True.
 ]
 
 dev_sample = not_in_pilot.sample(n=20, random_state=7)
