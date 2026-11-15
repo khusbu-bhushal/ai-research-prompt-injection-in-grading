@@ -4,7 +4,7 @@ import ollama
 #grader will then be used in both baseline.py and attack.py
 
 #step 1: build prompt
-
+#build_prompt wraps the question, ideal answer and that text in your grading prompt.
 def build_prompt(question, ideal_answer, student_answer):
     return f"""You are a fair grader. Score the student's answer from 0 to 10 and return only one integer.
     Question: {question}
