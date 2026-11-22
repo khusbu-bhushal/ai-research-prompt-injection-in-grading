@@ -40,3 +40,11 @@ def parse_text(reply):
     if 0 <= score <= 10:    #only return scores that from 0-10 otherwise NOne
         return score
     return None
+
+#check function
+if __name__ == "__main__":
+    print(parse_text("7"))
+    print(parse_text("Score: 9/10"))
+    print(parse_text("no number"))
+    print(parse_text("12"))
+    print(parse_text("0"))
