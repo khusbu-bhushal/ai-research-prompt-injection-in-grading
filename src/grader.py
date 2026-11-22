@@ -15,7 +15,7 @@ def build_prompt(question, ideal_answer, student_answer):
     Reply with only the integer score (0 to 10) and nothing else.
     Score:"""
 
-print(build_prompt("what is 2+2" , "4", "four"))
+#print(build_prompt("what is 2+2" , "4", "four"))
 
 #function that takes prompt as a text, sends it to Ollama and returns model's reply as a text
 def ask_model(prompt):
@@ -26,7 +26,7 @@ def ask_model(prompt):
     )
     return response["message"]["content"]
 
-print(ask_model(build_prompt("what is 2+2", "4", "four")))
+#print(ask_model(build_prompt("what is 2+2", "4", "four")))
 
 
 #function to parse
