@@ -1,3 +1,7 @@
+#why are we creating dev_sample.py again
+#used to test 20 answers and test and debug the pipeline
+#does the prompt return a score that the parser can read
+# how long is each call going to take
 import pandas as pd
 
 full_dataset = pd.read_csv("data/raw/dataset_en.csv")

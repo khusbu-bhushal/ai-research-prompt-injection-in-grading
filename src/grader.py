@@ -1,7 +1,9 @@
 import ollama
+import re
 
 #grader builds the prompt, calls Ollama with settings, and reads back the integer
 #grader will then be used in both baseline.py and attack.py
+#the folow is going to be prompt, then model, then reply text, parse and score
 
 #step 1: build prompt
 #build_prompt wraps the question, ideal answer and that text in your grading prompt.
@@ -27,3 +29,14 @@ def ask_model(prompt):
 print(ask_model(build_prompt("what is 2+2", "4", "four")))
 
 
+#function to parse
+def parse_text(reply):
+    numbers = re.findall("r\d+", reply)
+    if len(numbers) == 0: #no number? give up and not return anything
+        return None
+    if len(set(numbers)) > 1: #set here removes duplicates
+        return None
+    score = int(numbers[0])
+    if 0 <= score <= 10:    #only return scores that from 0-10 otherwise NOne
+        return score
+    return None
