@@ -31,7 +31,7 @@ print(ask_model(build_prompt("what is 2+2", "4", "four")))
 
 #function to parse
 def parse_text(reply):
-    numbers = re.findall("r\d+", reply)
+    numbers = re.findall(r"\d+", reply)
     if len(numbers) == 0: #no number? give up and not return anything
         return None
     if len(set(numbers)) > 1: #set here removes duplicates
