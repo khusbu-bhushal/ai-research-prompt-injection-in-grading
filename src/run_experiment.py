@@ -8,6 +8,7 @@ from attacks import add_attack #from attacks.py bring the function add_attack
 import time 
 import pandas as pd
 
+#change these settings below for dev run and the pilot, you dont have to change anything else
 conditions = ["clean", "coercive_suffix", "fake_rubric", "role_play"]
 SAMPLE_PATH = "data/derived/dev_sample.csv"   
 OUTPUT_PATH = "results/dev_results.csv"
@@ -46,6 +47,7 @@ for _, row in sample.iterrows():  #_ is stil la valid variable name used for var
         pd.DataFrame(rows).to_csv(OUTPUT_PATH, index=False)
 
 
+#we added this summary below for average time per call and parse failures
 results = pd.DataFrame(rows)
 print()
 print("Calls:", len(results))
