@@ -7,7 +7,6 @@ from grader import build_prompt, ask_model, parse_text
 from attacks import add_attack #from attacks.py bring the function add_attack
 import time 
 import pandas as pd
-import os
 
 conditions = ["clean", "coercive_suffix", "fake_rubric", "role_play"]
 SAMPLE_PATH = "data/derived/dev_sample.csv"   
@@ -21,8 +20,8 @@ if N_ANSWERS is not None:
 
 rows = []  #one dictionary per model call
 
-for _, row in sample.iterrows():
-    for condition in CONDITIONS:
+for _, row in sample.iterrows():  #_ is stil la valid variable name used for various iterations
+    for condition in conditions:
         answer = add_attack(row["student_answer"], condition)
         prompt = build_prompt(row["question_text"], row["ideal_answer"], answer)
 
